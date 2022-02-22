@@ -1,16 +1,29 @@
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
 
-const JobWidget = ({ slug, category, employers }) => {
-    const relatedJobs = [{
-        createdAt: "2022-02-03T20:49:57.337418+00:00",
-        featuredImage: { url: 'https://media.graphcms.com/WHG34KqRTmqiKfOlPNev' },
-        slug: "alaska",
-        timePeriod: "Since Aug, 2018",
-        title: "Alaska Airlines",
-    }]
+import { getRecentJobs, getSimilarJobs, getSimilarJobsByCategory } from '../services'
 
+const JobWidget = ({ slug, category, employers }) => {
+    const [relatedJobs, setRelatedJobs] = useState([])
+    
+    useEffect(() => {
+        if (category) {
+            getSimilarJobsByCategory(category, slug).then((result) => {
+                setRelatedJobs(result)
+            })
+        } else if (slug) {
+            getSimilarJobs(employers, slug).then((result) => {
+                setRelatedJobs(result)
+            })
+        } else {
+            getRecentJobs().then((result) => {
+                setRelatedJobs(result)
+            })
+        }
+    }, [slug, category, employers])
+    
     if (relatedJobs.length > 0) {
         return (
             <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-4">
@@ -24,7 +37,7 @@ const JobWidget = ({ slug, category, employers }) => {
                                 width="60px"
                                 unoptimized
                                 className="align-middle rounded-full"
-                                src="https://media.graphcms.com/output=format:jpg/resize=width:100,height:100,fit:crop/YGzRFywYTYSasVxx6Nk3"
+                                src={job.featuredImage.url}
                             />
                         </div>
                         <div className="flex-grow ml-4">

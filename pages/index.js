@@ -1,6 +1,9 @@
 import { JobDetail, Employers, JobWidget } from '../components';
 
-// (2) The data is rendered as HTML page
+// (1) The "getJobs" (async) function will fetch "jobs" data from Graph CMS...
+import { getJobs } from '../services';
+
+// (3) The "props" data (jobs) is rendered as HTML page...
 export default function Home({ jobs }) {
 	return (
 		<div className="container mx-auto px-10 mb-8">
@@ -19,24 +22,10 @@ export default function Home({ jobs }) {
 	);
 }
 
-// The "getStaticProps" is an "async" function that we need to "export data" inside the page component as "props"...
-// (1) The data required to render the page is fetched at "build time" (ahead of a user's request). The data comes from a headless CMS. The data can be publicly cached...
+// (2) The "getStaticProps" (async) function exports data at build time (ahead of user's request)...
+// The data (e.g. "jobs" from headless CMS in this case) is exported inside the HTML page component as "props"...
 export async function getStaticProps() {
-	const data = [{
-		node: {
-			timePeriod: 'Since Aug, 2018',
-			slug: 'alaska',
-			title: 'Alaska Airlines',
-			content: '> paragraph 1...\n' +
-				'- bullet 1\n' +
-				'- bullet 2\n' +
-				'- bullet 3\n' +
-				'> paragraph 2',
-			featuredImage: { url: 'https://media.graphcms.com/WHG34KqRTmqiKfOlPNev' },
-			employers: ['cognizant']
-		}
-	}]
-	
+	const data = (await getJobs()) || [];
 	return {
 		props: { jobs: data },
 	};

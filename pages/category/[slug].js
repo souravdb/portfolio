@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import { JobDetail, Employers, JobWidget, Loader } from '../../components'
+import { getCategories, getJobsByCategory, getJobDetails } from '../../services'
 
 const JobDetailsByCategory = ({ job, category }) => {
     const router = useRouter()
@@ -27,30 +28,18 @@ const JobDetailsByCategory = ({ job, category }) => {
 }
 export default JobDetailsByCategory
 
-// Fetch data at build time
-// The "getStaticProps" is an "async" function that we need to "export data" inside the page component as "props" e.g. "job"...
 export async function getStaticProps({ params }) {
-    const data = {
-        timePeriod: 'Since Aug, 2018',
-        slug: 'alaska',
-        title: 'Alaska Airlines',
-        content: '> paragraph 1...\n' +
-            '- bullet 1\n' +
-            '- bullet 2\n' +
-            '- bullet 3\n' +
-            '> paragraph 2',
-        featuredImage: { url: 'https://media.graphcms.com/WHG34KqRTmqiKfOlPNev' },
-        employers: [{name: 'Cognizant Technologies', slug: 'cognz'}]
-    }
-
+    const jobs = await getJobsByCategory(params.slug)
+    const data = await getJobDetails(jobs[0].node.slug)
     return {
-        props: { job: data, category: params.slug },
+        props: {
+            job: data, category: params.slug
+        },
     }
 }
 
-// The "getStaticPaths" is an "async" function to statically pre-render pages using dynamic routes e.g. "category/engg", etc...
 export async function getStaticPaths() {
-    const categories = [{slug: 'engg'}]
+    const categories = await getCategories()
     return {
         paths: categories.map(({ slug }) => ({ params: { slug } })),
         fallback: true,

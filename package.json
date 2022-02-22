@@ -7,14 +7,18 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"graphql": "^16.3.0",
+		"graphql-request": "^4.0.0",
 		"moment": "^2.29.1",
 		"next": "latest",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-markdown": "^8.0.0",
-		"sass": "^1.49.8"
+		"sass": "^1.49.8",
+		"swr": "^1.2.2"
 	},
 	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.2",
 		"autoprefixer": "^10.4.0",
 		"eslint": "^8.9.0",
 		"eslint-config-next": "^12.1.0",

@@ -1,9 +1,19 @@
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { getCategories } from '../services'
+
 const Header = () => {
     const bio = { firstName: 'SOURAV', lastName: 'DEB BARMA', location: 'Woodstock, GA', phoneNo: '(469)-803-8830', email: 'souravd.now@gmail.com' }
-	const categories = [{ name: 'Leadership', slug: 'lead' }, { name: 'Consulting', slug: 'cons' }, { name: 'Engineering', slug: 'engg' },]
+	
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        getCategories().then((result) => {
+            setCategories(result)
+        })
+    }, [])
 
     return (
         <div className="container mx-auto px-10 mb-8">
@@ -51,24 +61,3 @@ const Header = () => {
 }
 
 export default Header
-
-// Fetch data at build time
-// The "getStaticProps" is an "async" function that we need to "export data" inside the page component as "props" e.g. "employers"...
-// export async function getStaticProps() {
-//     const bio = { 
-//         firstName: 'SOURAV', 
-//         lastName: 'DEB BARMA',
-//         location: 'Woodstock, GA', 
-//         phoneNo: '(469)-803-8830', 
-//         email: 'souravd.now@gmail.com' 
-//     }
-//     const data = [
-//         { name: 'Leadership', slug: 'lead' }, 
-//         { name: 'Consulting', slug: 'cons' }, 
-//         { name: 'Engineering', slug: 'engg' },
-//     ]
-
-//     return {
-//         props: { categories: data, bio },
-//     }
-// }
