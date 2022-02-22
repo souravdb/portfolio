@@ -1,9 +1,74 @@
-import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Header = () => {
+    const bio = { firstName: 'SOURAV', lastName: 'DEB BARMA', location: 'Woodstock, GA', phoneNo: '(469)-803-8830', email: 'souravd.now@gmail.com' }
+	const categories = [{ name: 'Leadership', slug: 'lead' }, { name: 'Consulting', slug: 'cons' }, { name: 'Engineering', slug: 'engg' },]
+
     return (
-        <div>Header</div>
+        <div className="container mx-auto px-10 mb-8">
+            <div className="border-b w-full inline-block border-blue-400 py-8">
+                <div className="md:float-left block">
+                    <Link href="/" passHref>
+                        <span className='cursor-pointer'>
+                            <Image
+                                alt="SDB"
+                                height="100px"
+                                width="100px"
+                                unoptimized
+                                className="align-middle rounded-full"
+                                src="https://media.graphcms.com/output=format:jpg/resize=width:100,height:100,fit:crop/YGzRFywYTYSasVxx6Nk3"
+                            />
+                        </span>
+                    </Link>
+                </div>
+                <div>
+                    {/* <table>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-md px-4 font-semibold">{bioData.firstName} {bioData.lastName}</span></td></tr>
+                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-sm px-4">{bioData.location}</span></td></tr>
+                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-sm px-4">{bioData.phoneNo}</span></td></tr>
+                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-sm px-4">{bioData.email}</span></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table> */}
+                </div>
+                <div className="hidden md:float-left md:contents">
+                    {categories.map((category, index) => (
+                        <Link key={index} href={`/category/${category.slug}`} passHref>
+                            <span className="md:float-right mt-2 align-middle text-white ml-4 px-4 font-semibold cursor-pointer">
+                                {category.name}
+                            </span>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </div>
     )
 }
 
 export default Header
+
+// Fetch data at build time
+// The "getStaticProps" is an "async" function that we need to "export data" inside the page component as "props" e.g. "employers"...
+// export async function getStaticProps() {
+//     const bio = { 
+//         firstName: 'SOURAV', 
+//         lastName: 'DEB BARMA',
+//         location: 'Woodstock, GA', 
+//         phoneNo: '(469)-803-8830', 
+//         email: 'souravd.now@gmail.com' 
+//     }
+//     const data = [
+//         { name: 'Leadership', slug: 'lead' }, 
+//         { name: 'Consulting', slug: 'cons' }, 
+//         { name: 'Engineering', slug: 'engg' },
+//     ]
+
+//     return {
+//         props: { categories: data, bio },
+//     }
+// }
