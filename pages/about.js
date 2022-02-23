@@ -8,15 +8,14 @@ export default function About({ author }) {
 		<div className="container mx-auto px-10 mb-8">
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div className="lg:col-span-8 col-span-1">
-					<div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
-						<div className="text-center mt-20 mb-8 p-12 relative rounded-lg">
-							<Image
-								id="author-photo"
-								alt={author.name}
-								height="300px"
+					<div className="bg-white shadow-lg rounded-lg lg:p-8 mb-8">
+						<div className="float align-middle mb-6">
+							<img
+								alt=""
 								width="300px"
-								className="align-middle rounded-full"
+								height="300px"
 								src={author.photo.url}
+								className="align-middle rounded-full p-10"
 							/>
 						</div>
 
