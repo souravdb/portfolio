@@ -24,24 +24,24 @@ export default function About({ author }) {
 								{author.name}
 							</h1>
 
-							<div className='mb-6'>
-								<Markdown id="author-intro" className='prose text-xl text-justify'>{author.intro}</Markdown>
+							<div id="author-intro" className='mb-6'>
+								<Markdown className='prose text-xl text-justify'>{author.intro}</Markdown>
 							</div>
 
 							<h1 id="author-edu-header" className="transition duration-700 mb-8 hover:text-green-600 text-3xl font-semibold">
 								Education
 							</h1>
 
-							<div className='mb-6'>
-								<Markdown id="author-edu" className='prose text-sm'>{author.education}</Markdown>
+							<div id="author-edu" className='mb-6'>
+								<Markdown className='prose text-sm'>{author.education}</Markdown>
 							</div>
 
 							<h1 id="author-con-header" className="transition duration-700 mb-8 hover:text-green-600 text-3xl font-semibold">
 								Contact
 							</h1>
 
-							<div className='mb-6'>
-								<Markdown id="author-con" className='prose text-sm'>{author.contactInfo}</Markdown>
+							<div id="author-con" className='mb-6'>
+								<Markdown className='prose text-sm'>{author.contactInfo}</Markdown>
 							</div>
 						</div>
 					</div>
