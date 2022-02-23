@@ -16,7 +16,23 @@ const Header = () => {
     return (
         <div className="container mx-auto px-10 mb-8">
             <div className="border-b w-full inline-block border-blue-400 py-8">
-                <div className="hidden md:float-left md:contents">
+
+                <div className="md:hidden float-left justify-evenly">
+                    <Link href='/about' passHref>
+                        <span className="md:float-right mt-2 align-middle text-white ml-4 px-4 font-semibold cursor-pointer">
+                        <Image
+                                alt="SDB"
+                                height="50px"
+                                width="50px"
+                                unoptimized
+                                className="align-middle rounded-full"
+                                src="https://media.graphcms.com/output=format:jpg/resize=width:100,height:100,fit:crop/YGzRFywYTYSasVxx6Nk3"
+                            />
+                        </span>
+                    </Link>
+                </div>
+
+                <div className="hidden md:float-left md:contents justify-evenly">
                     <Link href="/about" passHref>
                         <span className='cursor-pointer'>
                             <Image
@@ -40,6 +56,7 @@ const Header = () => {
                         </Link>
                     ))}
                 </div>
+
             </div>
         </div>
     )

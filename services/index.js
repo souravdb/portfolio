@@ -201,6 +201,7 @@ export const getAbout = async () => {
 	const query = gql`
 		query GetAbout() {
 			about(where: {id:"ckztdmx08a2r90f724pa2l32z"}) {
+				name
 				intro
 				education
 				contactInfo

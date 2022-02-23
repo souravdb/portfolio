@@ -31,7 +31,7 @@ export default function About() {
 
 						<div className="px-4 lg:px-0">
 							<h1 className="transition duration-700 text-center mb-8 hover:text-green-600 text-3xl font-semibold">
-								About...
+								{bio.name}
 							</h1>
 
 							<div className='mb-6'>
@@ -43,7 +43,7 @@ export default function About() {
 							</h1>
 
 							<div className='mb-6'>
-								<Markdown className='prose text-sm'>{bio.contactInfo}</Markdown>
+								<Markdown className='prose text-sm'>{bio.education}</Markdown>
 							</div>
 
 							<h1 className="transition duration-700 mb-8 hover:text-green-600 text-3xl font-semibold">
@@ -51,7 +51,7 @@ export default function About() {
 							</h1>
 
 							<div className='mb-6'>
-								<Markdown className='prose text-sm'>{bio.education}</Markdown>
+								<Markdown className='prose text-sm'>{bio.contactInfo}</Markdown>
 							</div>
 						</div>
 					</div>
