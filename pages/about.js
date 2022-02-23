@@ -10,6 +10,7 @@ export default function About({ author }) {
 					<div className="bg-white shadow-lg rounded-lg lg:p-8 mb-8">
 						<div className="float align-middle mb-6">
 							<img
+								id="author-photo"
 								alt=""
 								width="300px"
 								height="300px"
