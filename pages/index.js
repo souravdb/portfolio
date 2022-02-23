@@ -1,7 +1,7 @@
-import { JobDetail, Employers, JobWidget } from '../components';
+import { JobDetail, Employers, JobWidget } from '../components'
 
 // (1) The "getJobs" (async) function will fetch "jobs" data from Graph CMS...
-import { getJobs } from '../services';
+import { getJobs } from '../services'
 
 // (3) The "props" data (jobs) is rendered as HTML page...
 export default function Home({ jobs }) {
@@ -19,14 +19,14 @@ export default function Home({ jobs }) {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 // (2) The "getStaticProps" (async) function exports data at build time (ahead of user's request)...
 // The data (e.g. "jobs" from headless CMS in this case) is exported inside the HTML page component as "props"...
 export async function getStaticProps() {
-	const data = (await getJobs()) || [];
+	const data = (await getJobs()) || []
 	return {
 		props: { jobs: data },
-	};
+	}
 }

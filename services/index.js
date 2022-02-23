@@ -197,15 +197,15 @@ export const getCategories = async () => {
 }
 
 // Service called by "About" component...
-export const getAbout = async () => {
+export const getAuthor = async () => {
 	const query = gql`
-		query GetAbout() {
-			about(where: {id:"ckztdmx08a2r90f724pa2l32z"}) {
+		query GetAuthor() {
+			author(where: {id:"ckztdmx08a2r90f724pa2l32z"}) {
 				name
 				intro
 				education
 				contactInfo
-				featuredImage {
+				photo {
 					url
 				}
 			}
@@ -213,5 +213,5 @@ export const getAbout = async () => {
 	`
 
 	const result = await request(graphqlAPI, query)
-	return result.about
+	return result.author
 }
