@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { getCategories } from '../services'
 
 const Header = () => {
-    const bio = { firstName: 'SOURAV', lastName: 'DEB BARMA', location: 'Woodstock, GA', phoneNo: '(469)-803-8830', email: 'souravd.now@gmail.com' }
-	
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
@@ -19,7 +17,7 @@ const Header = () => {
         <div className="container mx-auto px-10 mb-8">
             <div className="border-b w-full inline-block border-blue-400 py-8">
                 <div className="md:float-left block">
-                    <Link href="/" passHref>
+                    <Link href="/about" passHref>
                         <span className='cursor-pointer'>
                             <Image
                                 alt="SDB"
@@ -32,20 +30,7 @@ const Header = () => {
                         </span>
                     </Link>
                 </div>
-                <div>
-                    {/* <table>
-                        <tr>
-                            <td>
-                                <table>
-                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-md px-4 font-semibold">{bioData.firstName} {bioData.lastName}</span></td></tr>
-                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-sm px-4">{bioData.location}</span></td></tr>
-                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-sm px-4">{bioData.phoneNo}</span></td></tr>
-                                    <tr><td><span className="md:float-left mt-2 align-left text-white ml-4 text-sm px-4">{bioData.email}</span></td></tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table> */}
-                </div>
+                
                 <div className="hidden md:float-left md:contents">
                     {categories.map((category, index) => (
                         <Link key={index} href={`/category/${category.slug}`} passHref>

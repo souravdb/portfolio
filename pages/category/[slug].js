@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import { JobDetail, Employers, JobWidget, Loader } from '../../components'
-import { getCategories, getJobsByCategory, getJobDetails } from '../../services'
+import { getCategories, getSimilarJobsByCategory } from '../../services'
 
 const JobDetailsByCategory = ({ job, category }) => {
     const router = useRouter()
@@ -29,11 +29,11 @@ const JobDetailsByCategory = ({ job, category }) => {
 export default JobDetailsByCategory
 
 export async function getStaticProps({ params }) {
-    const jobs = await getJobsByCategory(params.slug)
-    const data = await getJobDetails(jobs[0].node.slug)
+    const jobs = await getSimilarJobsByCategory(params.slug)
     return {
         props: {
-            job: data, category: params.slug
+            // job: data, category: params.slug
+            job: jobs[0].node, category: params.slug
         },
     }
 }

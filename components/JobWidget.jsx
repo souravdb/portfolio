@@ -3,18 +3,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
 
-import { getRecentJobs, getSimilarJobs, getSimilarJobsByCategory } from '../services'
+import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExceptSlug } from '../services'
 
 const JobWidget = ({ slug, category, employers }) => {
     const [relatedJobs, setRelatedJobs] = useState([])
     
     useEffect(() => {
         if (category) {
-            getSimilarJobsByCategory(category, slug).then((result) => {
+            getSimilarJobsByCategoryExceptSlug(category, slug).then((result) => {
                 setRelatedJobs(result)
             })
         } else if (slug) {
-            getSimilarJobs(employers, slug).then((result) => {
+            getSimilarJobsExceptSlug(employers, slug).then((result) => {
                 setRelatedJobs(result)
             })
         } else {
