@@ -2,8 +2,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build && next export -o docs",
-		"start": "serve docs",
+		"build": "next build",
+		"start": "next start",
 		"lint": "next lint",
 		"test": "cypress run --reporter mochawesome"
 	},

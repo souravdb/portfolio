@@ -18,6 +18,7 @@ cypress.json
 
 # production
 /build
+/docs
 
 # misc
 .DS_Store
