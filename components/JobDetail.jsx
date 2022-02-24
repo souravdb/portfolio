@@ -1,11 +1,16 @@
 import Markdown from 'react-markdown'
+import Image from 'next/image'
+
+import { grpahCMSImageLoader } from '../util'
 
 const JobDetail = ({ job }) => {
     return (
         <>
             <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
                 <div className="relative overflow-hidden shadow-md mb-6">
-                    <img
+                    <Image
+                        unoptimized
+                        loader={grpahCMSImageLoader}
                         alt=""
                         width="100%"
                         height="100%"
@@ -35,7 +40,7 @@ const JobDetail = ({ job }) => {
                                     item.split("- ").map((node, subindex) => (
                                         (subindex > 0) ? <Markdown key={subindex} className='prose text-sm hover:text-blue-600'>{"- " + node}</Markdown> : <Markdown key={subindex} className='prose text-xl'>{"> " + node}</Markdown>
                                     )) :
-                                <Markdown key={index} className='prose text-xl'>{"> " + item}</Markdown>
+                                    <Markdown key={index} className='prose text-xl'>{"> " + item}</Markdown>
                             ))
                         }
                     </div>

@@ -3,11 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
 
+import { grpahCMSImageLoader } from '../util'
 import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExceptSlug } from '../services'
 
 const JobWidget = ({ slug, category, employers }) => {
     const [relatedJobs, setRelatedJobs] = useState([])
-    
+
     useEffect(() => {
         if (category) {
             getSimilarJobsByCategoryExceptSlug(category, slug).then((result) => {
@@ -23,7 +24,7 @@ const JobWidget = ({ slug, category, employers }) => {
             })
         }
     }, [slug, category, employers])
-    
+
     if (relatedJobs.length > 0) {
         return (
             <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-4">
@@ -32,10 +33,11 @@ const JobWidget = ({ slug, category, employers }) => {
                     <div key={index} className="flex items-center w-full mb-4">
                         <div className="w-16 flex-none">
                             <Image
+                                unoptimized
+                                loader={grpahCMSImageLoader}
                                 alt={job.title}
                                 height="60px"
                                 width="60px"
-                                unoptimized
                                 className="align-middle rounded-full"
                                 src={job.featuredImage.url}
                             />

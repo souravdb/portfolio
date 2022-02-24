@@ -1,5 +1,7 @@
 import Markdown from 'react-markdown'
+import Image from 'next/image'
 
+import { grpahCMSImageLoader } from '../util'
 import { getAuthor } from '../services'
 
 export default function About({ author }) {
@@ -9,7 +11,9 @@ export default function About({ author }) {
 				<div className="lg:col-span-8 col-span-1">
 					<div className="bg-white shadow-lg rounded-lg lg:p-8 mb-8">
 						<div className="float align-middle mb-6">
-							<img
+							<Image
+								unoptimized
+								loader={grpahCMSImageLoader}
 								id="author-photo"
 								alt=""
 								width="300px"
