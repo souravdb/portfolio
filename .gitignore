@@ -6,7 +6,11 @@
 .pnp.js
 
 # testing
+/cypress
+/mochawesome-report
 /coverage
+/.nyc_output
+cypress.json
 
 # next.js
 /.next/
@@ -36,3 +40,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# dockerfile
+Dockerfile
