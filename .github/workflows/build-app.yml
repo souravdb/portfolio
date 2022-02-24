@@ -1,15 +1,18 @@
 name: Build and Test Next.JS Application
 
-on:  push
-
+on:
+  push:
+    branches:
+      - main
 jobs:
-  build-project:
-    name: Build Application
+  release:
+    name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: Install NPM dependencies
-        run: npm install
-      - name: Build Static Website
-        run: npm run build
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        run: |
+          npm ci
+          npm run export
