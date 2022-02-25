@@ -28,7 +28,7 @@ const JobDetail = ({ job }) => {
                         {job.title}
                     </h1>
 
-                    <div className='mb-6'>
+                    <div className='mb-6 text-justify'>
                         {
                             job.content.split("> ").map((item, index) => (
                                 (item.indexOf("- ") > 0) ?
