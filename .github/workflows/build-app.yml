@@ -36,4 +36,4 @@ jobs:
       run: npm run build --if-present
 
     - name: Export Project
-    run: npm export
+      run: npm export
