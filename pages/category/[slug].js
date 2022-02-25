@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import { JobDetail, Employers, JobWidget, Loader } from '../../components'
+import { getCategories, getSimilarJobsByCategory } from '../../services'
 
 const JobDetailsByCategory = ({ job, category }) => {
     const router = useRouter()
@@ -27,28 +28,18 @@ const JobDetailsByCategory = ({ job, category }) => {
 }
 export default JobDetailsByCategory
 
-// Fetch data at build time
 export async function getStaticProps({ params }) {
-    const data = {
-        timePeriod: 'Since Aug, 2018',
-        slug: 'alaska',
-        title: 'Alaska Airlines',
-        content: '> paragraph 1...\n' +
-            '- bullet 1\n' +
-            '- bullet 2\n' +
-            '- bullet 3\n' +
-            '> paragraph 2',
-        featuredImage: { url: 'https://media.graphcms.com/WHG34KqRTmqiKfOlPNev' },
-        employers: [{name: 'Cognizant Technologies', slug: 'cognz'}]
-    }
-
+    const jobs = await getSimilarJobsByCategory(params.slug)
     return {
-        props: { job: data, category: params.slug },
+        props: {
+            // job: data, category: params.slug
+            job: jobs[0].node, category: params.slug
+        },
     }
 }
 
 export async function getStaticPaths() {
-    const categories = [{slug: 'engg'}]
+    const categories = await getCategories()
     return {
         paths: categories.map(({ slug }) => ({ params: { slug } })),
         fallback: true,

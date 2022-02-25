@@ -1,13 +1,21 @@
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-const Employers = () => {
-    const employers = [{
-        description: "Location: USA, India, Australia | From: 2015 | To: 2022",
-        jobs: [{ slug: 'alaska' },],
-        name: "Cognizant Technologies",
-        slug: "cognz"
-    }]
+// (1) The "getEmployers" (async) function will fetch "employers" data from Graph CMS...
+import { getEmployers } from '../services'
 
+const Employers = () => {
+    // (3) This "employers" state...
+    const [employers, setEmployers] = useState([])
+    
+    // (2) The "setEmployers" function will set the "employers" state...
+    useEffect(() => {
+        getEmployers().then((cmsEmployers) => {
+            setEmployers(cmsEmployers)
+        })
+    }, [])
+
+    // (4) HTML page will be rendered based the "employers" state...
     return (
         <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-4">
             <h3 className="text-3xl mb-8 font-semibold border-b pb-4">Work History</h3>

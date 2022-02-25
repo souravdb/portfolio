@@ -1,15 +1,29 @@
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
 
+import { grpahCMSImageLoader } from '../util'
+import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExceptSlug } from '../services'
+
 const JobWidget = ({ slug, category, employers }) => {
-    const relatedJobs = [{
-        createdAt: "2022-02-03T20:49:57.337418+00:00",
-        featuredImage: { url: 'https://media.graphcms.com/WHG34KqRTmqiKfOlPNev' },
-        slug: "alaska",
-        timePeriod: "Since Aug, 2018",
-        title: "Alaska Airlines",
-    }]
+    const [relatedJobs, setRelatedJobs] = useState([])
+
+    useEffect(() => {
+        if (category) {
+            getSimilarJobsByCategoryExceptSlug(category, slug).then((result) => {
+                setRelatedJobs(result)
+            })
+        } else if (slug) {
+            getSimilarJobsExceptSlug(employers, slug).then((result) => {
+                setRelatedJobs(result)
+            })
+        } else {
+            getRecentJobs().then((result) => {
+                setRelatedJobs(result)
+            })
+        }
+    }, [slug, category, employers])
 
     if (relatedJobs.length > 0) {
         return (
@@ -19,12 +33,13 @@ const JobWidget = ({ slug, category, employers }) => {
                     <div key={index} className="flex items-center w-full mb-4">
                         <div className="w-16 flex-none">
                             <Image
+                                unoptimized
+                                loader={grpahCMSImageLoader}
                                 alt={job.title}
                                 height="60px"
                                 width="60px"
-                                unoptimized
                                 className="align-middle rounded-full"
-                                src="https://media.graphcms.com/output=format:jpg/resize=width:100,height:100,fit:crop/YGzRFywYTYSasVxx6Nk3"
+                                src={job.featuredImage.url}
                             />
                         </div>
                         <div className="flex-grow ml-4">
