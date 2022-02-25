@@ -18,7 +18,7 @@ const Employers = () => {
     // (4) HTML page will be rendered based the "employers" state...
     return (
         <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-4">
-            <h3 className="text-3xl mb-8 font-semibold border-b pb-4">Work History</h3>
+            <h3 className="text-3xl mb-8 font-semibold border-b hover:text-blue-600 pb-4">Work History</h3>
             {employers.map((employer, index) => (
                 <div key={index}>
                     <Link key={index} href={`/job/${employer.jobs[0].slug}`} passHref>
