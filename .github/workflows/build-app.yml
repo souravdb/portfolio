@@ -24,16 +24,16 @@ jobs:
           ${{ github.workspace }}/.next/cache
         key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
-    - name: Setup Node.js ${{ matrix.node-version }}
+    - name: Setup Node ${{ matrix.node-version }} and Cache
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    
+        cache: 'npm'
+        cache-dependency-path: |
+          '**/package-lock.json'
+
     - name: Install Dependencies
       run: npm i
     
     - name: Build Project
       run: npm run build --if-present
-
-    - name: Export Project
-      run: npm export

@@ -26,7 +26,7 @@ export async function getStaticProps() {
 						photo: { url: 'https://media.graphcms.com/YGzRFywYTYSasVxx6Nk3' }
 	}
 
-	console.log(data)
+	// console.log(data)
 	return {
 		props: { bio: data },
 	}
