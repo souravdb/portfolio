@@ -13,25 +13,26 @@ jobs:
         node-version: [14.x]
         
     steps:
-    - name: Checkout code
+    - name: Checkout Code
       uses: actions/checkout@v2
-    
-    - name: Cache Node Modules and Next Folder
-      uses: actions/cache@v2
-      with:
-        path: |
-          **/node_modules
-          ${{ github.workspace }}/.next/cache
-        key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
-    - name: Setup Node ${{ matrix.node-version }} and Cache
+    - name: Setup Node JS
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+
+    - name: Cache Dependencies
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: ./node_modules
+        key: modules-${{ hashFiles('package-lock.json') }}
 
     - name: Install Dependencies
-      run: npm i
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci --ignore-scripts
     
     - name: Build Project
       run: npm run build --if-present
+
+    # run npm test, lint, export, etc.
