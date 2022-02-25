@@ -1,14 +1,13 @@
-import React from 'react'
-
-import '../styles/globals.scss'
-import { Layout } from '../components'
+import { Header } from '../components';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<Layout>
+		<>
+			<Header />
 			<Component {...pageProps} />
-		</Layout>
-	)
+		</>
+	);
 }
 
-export default MyApp
+export default MyApp;
