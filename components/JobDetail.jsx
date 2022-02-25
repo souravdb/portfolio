@@ -42,7 +42,6 @@ const JobDetail = ({ job }) => {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

@@ -197,9 +197,9 @@ export const getCategories = async () => {
 }
 
 // Service called by "About" component...
-export const getAuthor = async () => {
+export const getBio = async () => {
 	const query = gql`
-		query GetAuthor() {
+		query GetBio() {
 			author(where: {id:"ckztdmx08a2r90f724pa2l32z"}) {
 				name
 				intro
