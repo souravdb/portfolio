@@ -31,26 +31,8 @@ export default JobDetailsByCategory
 export async function getStaticProps({ params }) {
     const jobs = await getSimilarJobsByCategory(params.slug)
 
-    // console.log(jobs)
-
-    // const jobs = [
-    //     {
-    //         // cursor: 'ckz7gcs203vuw0b81vpobremw',
-    //         node: {
-    //             slug: 'alaska',
-    //             title: 'Alaska Airlines',
-    //             content: '> xx In past 4 years, I have served Cognizant’s Quali… on availability of pilots and crew members, etc.',
-    //             timePeriod: 'Since Aug, 2018',
-    //             // featuredImage: [Object],
-    //             categories: [{ slug: 'engg'}],
-    //             employers: [{ slug: 'cognz'}]
-    //         }
-    //     }
-    // ]
-
     return {
         props: {
-            // job: data, category: params.slug
             job: jobs[0].node, category: params.slug
         },
     }
@@ -58,8 +40,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const categories = await getCategories()
-    console.log(categories)
-
+    
     // Get the paths we want to pre-render based on categories
     const paths = categories.map(
         ({ slug }) => ({ params: { slug } })
@@ -67,11 +48,4 @@ export async function getStaticPaths() {
     console.log(paths)
     
     return { paths, fallback: false }
-
-    // return {
-    //     paths: categories.map(
-    //         ({ slug }) => ({ params: { slug } })
-    //     ),
-    //     fallback: true,
-    // }
 }
