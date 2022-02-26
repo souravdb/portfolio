@@ -36,7 +36,7 @@ const JobWidget = ({ slug, category, employers }) => {
                                 height="60px"
                                 width="60px"
                                 className="align-middle rounded-full"
-                                src={`../${job.slug}.jpg`}
+                                src={`/${job.slug}.jpg`}
                             />
                         </div>
                         <div className="flex-grow ml-4">

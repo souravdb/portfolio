@@ -11,7 +11,7 @@ const About = ({ bio }) => {
                         alt=""
                         width="300px"
                         height="300px"
-                        src="self.jpg"
+                        src="/self.jpg"
                         className="align-middle rounded-full p-10"
                     />
                 </div>
