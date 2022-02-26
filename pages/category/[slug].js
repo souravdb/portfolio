@@ -30,7 +30,7 @@ export default JobDetailsByCategory
 
 export async function getStaticProps({ params }) {
     const jobs = (await getSimilarJobsByCategory(params.slug)) || []
-    
+
     // console.log(jobs)
 
     // const jobs = [
@@ -58,10 +58,13 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const categories = (await getCategories()) || []
+    console.log(categories)
 
-    // const categories = [{ slug: 'engg'}]
-    return {
-        paths: categories.map(({ slug }) => ({ params: { slug }})),
-        fallback: true,
-    }
+    // Get the paths we want to pre-render based on categories
+    const paths = categories.map((slug) => ({
+        params: { slug },
+    }))
+    console.log(paths)
+    
+    return { paths, fallback: false }
 }
