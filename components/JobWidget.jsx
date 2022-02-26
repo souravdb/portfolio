@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
 
-import { grpahCMSImageLoader } from '../util'
+// import { grpahCMSImageLoader } from '../util'
 import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExceptSlug } from '../services'
 
 const JobWidget = ({ slug, category, employers }) => {
@@ -34,12 +34,13 @@ const JobWidget = ({ slug, category, employers }) => {
                         <div className="w-16 flex-none">
                             <Image
                                 unoptimized
-                                loader={grpahCMSImageLoader}
+                                // loader={grpahCMSImageLoader}
                                 alt={job.title}
                                 height="60px"
                                 width="60px"
                                 className="align-middle rounded-full"
-                                src={job.featuredImage.url}
+                                src={`../${job.slug}.jpg`}
+                                // src={job.featuredImage.url}
                             />
                         </div>
                         <div className="flex-grow ml-4">

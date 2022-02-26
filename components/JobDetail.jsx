@@ -4,6 +4,15 @@ import Markdown from 'react-markdown'
 // import { grpahCMSImageLoader } from '../util'
 
 const JobDetail = ({ job }) => {
+    // console.log(job)
+    job = {
+        title: 'Alaska Airlines', 
+        // featuredImage: {…}, 
+        timePeriod: 'Since Aug, 2018', 
+        slug: 'alaska', 
+        content: '> xx In past 4 years, I have served Cognizant’s Quali… on availability of pilots and crew members, etc.'
+    }
+
     return (
         <>
             <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
@@ -11,7 +20,7 @@ const JobDetail = ({ job }) => {
                     <img
                         unoptimized
                         id="job-details-photo"
-                        alt=""
+                        alt={job.title}
                         width="100%"
                         height="100%"
                         src={`../${job.slug}.jpg`}

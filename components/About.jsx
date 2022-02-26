@@ -4,6 +4,8 @@ import Image from 'next/image'
 // import { grpahCMSImageLoader } from '../util'
 
 const About = ({ bio }) => {
+    // console.log(bio)
+    
     return (
         <>
             <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
@@ -43,7 +45,7 @@ const About = ({ bio }) => {
                         <Markdown className='prose text-sm'>{bio.education}</Markdown>
                     </div>
 
-                    
+
                 </div>
             </div>
         </>
