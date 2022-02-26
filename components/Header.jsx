@@ -5,19 +5,11 @@ import { getCategories } from '../services'
 
 const Header = () => {
     const [categories, setCategories] = useState([])
-    // console.log(categories)
 
     useEffect(() => {
         getCategories().then((result) => {
             setCategories(result)
         })
-
-        // setCategories([
-        //     {name: 'Engineering', slug: 'engg'},
-        //     {name: 'Consulting', slug: 'cons'},
-        //     {name: 'Leadership', slug: 'lead'}
-        // ])
-        
     }, [])
 
     return (

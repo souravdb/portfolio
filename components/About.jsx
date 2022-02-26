@@ -1,24 +1,17 @@
 import Markdown from 'react-markdown'
 import Image from 'next/image'
 
-// import { grpahCMSImageLoader } from '../util'
-
-const About = ({ bio }) => {
-    // console.log(bio)
-    
+const About = ({ bio }) => {    
     return (
         <>
             <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
                 <div className="relative overflow-hidden mb-6">
                     <Image
-                        unoptimized
-                        // loader={grpahCMSImageLoader}
                         id="bio-photo"
                         alt=""
                         width="300px"
                         height="300px"
                         src="self.jpg"
-                        // src={bio.photo.url}
                         className="align-middle rounded-full p-10"
                     />
                 </div>
@@ -44,8 +37,6 @@ const About = ({ bio }) => {
                     <div id="bio-edu" className='mb-6'>
                         <Markdown className='prose text-sm'>{bio.education}</Markdown>
                     </div>
-
-
                 </div>
             </div>
         </>

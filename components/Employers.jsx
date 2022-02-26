@@ -7,22 +7,12 @@ import { getEmployers } from '../services'
 const Employers = () => {
     // (3) This "employers" state...
     const [employers, setEmployers] = useState([])
-    // console.log(employers)
 
     // (2) The "setEmployers" function will set the "employers" state...
     useEffect(() => {
         getEmployers().then((cmsEmployers) => {
             setEmployers(cmsEmployers)
         })
-
-        // setEmployers(
-        //     [{
-        //         name: 'xx Cognizant Technologies', 
-        //         description: 'Location: USA, India, Australia | From: 2015 | To: 2022', 
-        //         slug: 'cognz', 
-        //         jobs: [{ slug: 'alaska'}]
-        //     }])
-        
     }, [])
 
     // (4) HTML page will be rendered based the "employers" state...
