@@ -31,17 +31,17 @@ const JobDetails = ({ job }) => {
 export default JobDetails
 
 export async function getStaticProps({ params }) {
-    // const data = await getJobDetails(params.slug)
+    const data = await getJobDetails(params.slug)
     // console.log(data)
 
-    const data = {
-        title: 'AT&T (USA)',
-        // featuredImage: { url: 'https://media.graphcms.com/m6zYxwmeR2qxYG0kkKyK' },
-        timePeriod: 'Aug, 2017 to Aug, 2018',
-        slug: 'att',
-        content: '> xx In past 4 years, I have served Cognizant’s Quali… on availability of pilots and crew members, etc.',
-        employers: [{ name: 'Cognizant Technologies', slug: 'cognz' }]
-    }
+    // const data = {
+    //     title: 'AT&T (USA)',
+    //     // featuredImage: { url: 'https://media.graphcms.com/m6zYxwmeR2qxYG0kkKyK' },
+    //     timePeriod: 'Aug, 2017 to Aug, 2018',
+    //     slug: 'att',
+    //     content: '> xx In past 4 years, I have served Cognizant’s Quali… on availability of pilots and crew members, etc.',
+    //     employers: [{ name: 'Cognizant Technologies', slug: 'cognz' }]
+    // }
 
     return {
         props: {
@@ -51,23 +51,23 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    // const jobs = await getJobs()
+    const jobs = await getJobs()
     // console.log(jobs)
     
-    const jobs = [
-        {
-            // cursor: 'ckz7gcs203vuw0b81vpobremw',
-            node: {
-                slug: 'alaska',
-                title: 'Alaska Airlines',
-                content: '> xx In past 4 years, I have served Cognizant’s Quali… on availability of pilots and crew members, etc.',
-                timePeriod: 'Since Aug, 2018',
-                // featuredImage: [Object],
-                categories: [{ slug: 'engg'}],
-                employers: [{ slug: 'cognz'}]
-            }
-        }
-    ]
+    // const jobs = [
+    //     {
+    //         // cursor: 'ckz7gcs203vuw0b81vpobremw',
+    //         node: {
+    //             slug: 'alaska',
+    //             title: 'Alaska Airlines',
+    //             content: '> xx In past 4 years, I have served Cognizant’s Quali… on availability of pilots and crew members, etc.',
+    //             timePeriod: 'Since Aug, 2018',
+    //             // featuredImage: [Object],
+    //             categories: [{ slug: 'engg'}],
+    //             employers: [{ slug: 'cognz'}]
+    //         }
+    //     }
+    // ]
 
     return {
         paths: jobs.map(({ node: { slug } }) => ({ params: { slug } })),
