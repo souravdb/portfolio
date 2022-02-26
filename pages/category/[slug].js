@@ -29,7 +29,7 @@ const JobDetailsByCategory = ({ job, category }) => {
 export default JobDetailsByCategory
 
 export async function getStaticProps({ params }) {
-    const jobs = (await getSimilarJobsByCategory(params.slug)) || []
+    const jobs = await getSimilarJobsByCategory(params.slug)
 
     // console.log(jobs)
 
@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const categories = (await getCategories()) || []
+    const categories = await getCategories()
     console.log(categories)
 
     // Get the paths we want to pre-render based on categories
