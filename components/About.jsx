@@ -5,14 +5,14 @@ const About = ({ bio }) => {
     return (
         <>
             <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
-                <div className="relative overflow-hidden mb-6">
+                <div className="relative overflow-hidden p-4">
                     <Image
                         id="bio-photo"
                         alt=""
-                        width="300px"
-                        height="300px"
+                        width="200px"
+                        height="200px"
                         src="/self.jpg"
-                        className="align-middle rounded-full p-10"
+                        className="align-middle rounded-full"
                     />
                 </div>
 
