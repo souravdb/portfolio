@@ -61,10 +61,17 @@ export async function getStaticPaths() {
     console.log(categories)
 
     // Get the paths we want to pre-render based on categories
-    const paths = categories.map((slug) => ({
-        params: { slug },
-    }))
+    const paths = categories.map(
+        ({ slug }) => ({ params: { slug } })
+    )
     console.log(paths)
     
     return { paths, fallback: false }
+
+    // return {
+    //     paths: categories.map(
+    //         ({ slug }) => ({ params: { slug } })
+    //     ),
+    //     fallback: true,
+    // }
 }
