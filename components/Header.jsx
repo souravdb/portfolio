@@ -8,15 +8,15 @@ const Header = () => {
     // console.log(categories)
 
     useEffect(() => {
-        // getCategories().then((result) => {
-        //     setCategories(result)
-        // })
+        getCategories().then((result) => {
+            setCategories(result)
+        })
 
-        setCategories([
-            {name: 'Engineering', slug: 'engg'},
-            {name: 'Consulting', slug: 'cons'},
-            {name: 'Leadership', slug: 'lead'}
-        ])
+        // setCategories([
+        //     {name: 'Engineering', slug: 'engg'},
+        //     {name: 'Consulting', slug: 'cons'},
+        //     {name: 'Leadership', slug: 'lead'}
+        // ])
         
     }, [])
 
