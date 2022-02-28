@@ -7,6 +7,7 @@ import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExcept
 
 const JobWidget = ({ slug, category, employers }) => {
     const [relatedJobs, setRelatedJobs] = useState([])
+    console.log(relatedJobs)
 
     useEffect(() => {
         if (category) {
@@ -40,8 +41,11 @@ const JobWidget = ({ slug, category, employers }) => {
                             />
                         </div>
                         <div className="flex-grow ml-4">
-                            <p className="text-gray-500 font-xs">{moment(job.startDate).format('MMM DD, YYYY')}</p>
-                            <Link href={`/job/${job.slug}`} className="text-md" key={index}>{job.title}</Link>
+                            <Link key={index} href={`/job/${job.slug}`} passHref>
+                                <span className={`cursor-pointer block ${(index === job.title.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mb-3`}>{job.title}</span>
+                            </Link>
+                            <span className="align-middle text-sm">{job.fromDate ? moment(job.fromDate).format('YYYY') : moment(Date.now()).format('YYYY')}</span>
+                            <span className="p-2">-</span><span className="align-middle text-sm">{job.toDate ? moment(job.toDate).format('YYYY') : moment(Date.now()).format('YYYY')}</span>
                         </div>
                     </div>
                 ))}

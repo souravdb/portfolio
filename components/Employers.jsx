@@ -24,7 +24,7 @@ const Employers = () => {
                     <Link key={index} href={`/job/${employer.jobs[0].slug}`} passHref>
                         <span className={`cursor-pointer block ${(index === employers.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mb-3`}>{employer.name}</span>
                     </Link>
-                    <p className='text-sm pb-6'>{employer.description}</p>
+                    <p className='text-sm pb-6'>{employer.location}</p>
                 </div>
             ))}
         </div>
