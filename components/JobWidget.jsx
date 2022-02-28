@@ -7,8 +7,7 @@ import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExcept
 
 const JobWidget = ({ slug, category, employers }) => {
     const [relatedJobs, setRelatedJobs] = useState([])
-    console.log(relatedJobs)
-
+    
     useEffect(() => {
         if (category) {
             getSimilarJobsByCategoryExceptSlug(category, slug).then((result) => {
