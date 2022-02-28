@@ -10,6 +10,7 @@ export const getJobs = async () => {
 				edges {
 					cursor
 					node {
+						location
 						fromDate
 						toDate
 						slug
@@ -65,6 +66,7 @@ export const getRecentJobs = async () => {
 					url
 				}
 				createdAt
+				location
 				fromDate
 				toDate
 				slug
@@ -89,6 +91,7 @@ export const getSimilarJobsExceptSlug = async (employers, slug) => {
 					url
 				}
 				createdAt
+				location
 				fromDate
 				toDate
 				slug
@@ -116,6 +119,7 @@ export const getSimilarJobsByCategoryExceptSlug = async (category, slug) => {
 					slug
 				}
 				createdAt
+				location
 				fromDate
 				toDate
 				slug
@@ -135,7 +139,8 @@ export const getJobDetails = async (slug) => {
 				title
 				featuredImage {
 					url
-				}        
+				}
+				location
 				fromDate
 				toDate
 				slug
@@ -166,6 +171,7 @@ export const getSimilarJobsByCategory = async (slug) => {
 						slug
 						title
 						content
+						location
 						fromDate
 						toDate
 						featuredImage {

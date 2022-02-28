@@ -7,7 +7,7 @@ import { getRecentJobs, getSimilarJobsExceptSlug, getSimilarJobsByCategoryExcept
 
 const JobWidget = ({ slug, category, employers }) => {
     const [relatedJobs, setRelatedJobs] = useState([])
-    
+
     useEffect(() => {
         if (category) {
             getSimilarJobsByCategoryExceptSlug(category, slug).then((result) => {
@@ -43,8 +43,11 @@ const JobWidget = ({ slug, category, employers }) => {
                             <Link key={index} href={`/job/${job.slug}`} passHref>
                                 <span className={`cursor-pointer block ${(index === job.title.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mb-3`}>{job.title}</span>
                             </Link>
-                            <span className="align-middle text-sm">{job.fromDate ? moment(job.fromDate).format('YYYY') : moment(Date.now()).format('YYYY')}</span>
-                            <span className="p-2">-</span><span className="align-middle text-sm">{job.toDate ? moment(job.toDate).format('YYYY') : moment(Date.now()).format('YYYY')}</span>
+                            <p className='text-xs'>{job.location}</p>
+                            <p className='text-md'>
+                                <span className="align-middle text-sm">{job.fromDate ? moment(job.fromDate).format('YYYY') : moment(Date.now()).format('YYYY')}</span>
+                                <span className="p-2">-</span><span className="align-middle text-sm">{job.toDate ? moment(job.toDate).format('YYYY') : moment(Date.now()).format('YYYY')}</span>
+                            </p>
                         </div>
                     </div>
                 ))}

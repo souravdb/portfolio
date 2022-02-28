@@ -22,9 +22,10 @@ const Employers = () => {
             {employers.map((employer, index) => (
                 <div key={index}>
                     <Link key={index} href={`/job/${employer.jobs[0].slug}`} passHref>
-                        <span className={`cursor-pointer block ${(index === employers.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mb-3`}>{employer.name}</span>
+                        <span className={`cursor-pointer block ${(index === employers.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mt-6`}>{employer.name}</span>
                     </Link>
-                    <p className='text-sm pb-6'>{employer.location}</p>
+                    <p className='text-xs'>{employer.timePeriod}</p>
+                    <p className='text-md'>{employer.location}</p>
                 </div>
             ))}
         </div>
