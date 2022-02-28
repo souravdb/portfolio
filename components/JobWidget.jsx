@@ -41,7 +41,7 @@ const JobWidget = ({ slug, category, employers }) => {
                         </div>
                         <div className="flex-grow ml-4">
                             <Link key={index} href={`/job/${job.slug}`} passHref>
-                                <span className={`cursor-pointer block ${(index === job.title.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mb-3`}>{job.title}</span>
+                                <span className={`cursor-pointer block ${(index === job.title.length) ? 'border-b-0' : 'border-b'} font-semibold hover:text-blue-600 pb-1 mt-4`}>{job.title}</span>
                             </Link>
                             <p className='text-xs'>{job.location}</p>
                             <p className='text-md'>
