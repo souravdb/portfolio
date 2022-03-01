@@ -117,6 +117,7 @@ export const getSimilarJobsByCategoryExceptSlug = async (category, slug) => {
 				}
 				categories {
 					slug
+					themeColor
 				}
 				createdAt
 				location
@@ -200,6 +201,7 @@ export const getCategories = async () => {
 			categories {
 				name
 				slug
+				themeColor
 			}
 		}
 	`
