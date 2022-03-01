@@ -58,7 +58,7 @@ export const getRecentJobs = async () => {
 	const query = gql`
 		query GetJobDetails() {
 			jobs(
-				orderBy: createdAt_ASC
+				orderBy: fromDate_DESC
 				first: 3
 			) {
 				title
@@ -84,6 +84,7 @@ export const getSimilarJobsExceptSlug = async (employers, slug) => {
 		query GetJobDetails($slug: String!, $employers: [String!]) {
 			jobs(
 				where: {slug_not: $slug, AND: {employers_some: {slug_in: $employers}}}
+				orderBy: fromDate_DESC
 				first: 3
 			) {
 				title
@@ -110,6 +111,7 @@ export const getSimilarJobsByCategoryExceptSlug = async (category, slug) => {
 		query GetJobDetails($slug: String!, $category: String!) {
 			jobs(
 				where: {slug_not: $slug, AND: {categories_some: {slug: $category}}}
+				orderBy: fromDate_DESC
 			) {
 				title
 				featuredImage {
