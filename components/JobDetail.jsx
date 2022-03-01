@@ -33,7 +33,7 @@ const JobDetail = ({ job }) => {
                         </div>
                     </div>
 
-                    <h1 className="transition duration-700 text-center mb-8 hover:text-blue-600 text-3xl font-semibold">
+                    <h1 className="transition duration-700 text-center mb-8 text-blue-900 text-3xl font-semibold">
                         {job.title}
                     </h1>
 

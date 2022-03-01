@@ -27,7 +27,7 @@ const JobWidget = ({ slug, category, employers }) => {
     if (relatedJobs.length > 0) {
         return (
             <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-4">
-                <h3 className="text-3xl mb-8 font-semibold border-b hover:text-blue-600 pb-4">{slug ? 'Related Jobs' : 'Recent Jobs'}</h3>
+                <h3 className="text-3xl mb-8 font-semibold border-b text-blue-900 pb-4">{slug ? 'Related Jobs' : 'Recent Jobs'}</h3>
                 {relatedJobs.map((job, index) => (
                     <div key={index} className="flex items-center w-full mb-4">
                         <div className="w-16 flex-none">

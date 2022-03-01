@@ -17,7 +17,7 @@ const Header = () => {
             <div className="border-b w-full inline-block border-blue-400 py-8">
                 <div className="float-right justify-evenly">
                     <Link href="/" passHref>
-                        <span id="menu-about" className="md:float-right mt-2 align-middle text-sm text-white hover:text-cyan-300 ml-4 px-4 font-semibold cursor-pointer">
+                        <span id="menu-about" className="md:float-right mt-2 align-middle text-sm text-amber-300 ml-4 px-4 font-semibold cursor-pointer">
                             About
                         </span>
                     </Link>

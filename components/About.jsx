@@ -17,7 +17,7 @@ const About = ({ bio }) => {
                 </div>
 
                 <div className="px-4 lg:px-0">
-                    <h1 id="bio-name" className="transition duration-700 text-center mb-8 hover:text-blue-600 text-3xl font-semibold">
+                    <h1 id="bio-name" className="transition duration-700 text-center mb-8 text-blue-900 text-3xl font-semibold">
                         {bio.name}
                     </h1>
                     <div id="bio-intro" className='mb-6'>
