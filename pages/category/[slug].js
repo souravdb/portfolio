@@ -6,8 +6,14 @@ import { getCategories, getSimilarJobsByCategory } from '../../services'
 
 const JobDetailsByCategory = ({ job, category }) => {
     const router = useRouter()
+    
     if (router.isFallback) {
         return <Loader />
+    }
+
+    if (this.state.hasError) {
+        // You can render any custom fallback UI
+        return <h1>Something went wrong.</h1>;
     }
 
     return (
@@ -40,11 +46,11 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const categories = await getCategories()
-    
+
     // Get the paths we want to pre-render based on categories
     const paths = categories.map(
         ({ slug }) => ({ params: { slug } })
     )
-    
+
     return { paths, fallback: false }
 }
