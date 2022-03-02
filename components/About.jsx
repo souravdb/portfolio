@@ -1,14 +1,14 @@
 import Markdown from 'react-markdown'
 import Image from 'next/image'
 
-const About = ({ bio }) => {    
+const About = ({ about }) => {    
     return (
         <>
             <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
                 <div className="relative overflow-hidden p-4">
                     <Image
                         data-cy="about-pic"
-                        title={bio.name}
+                        title={about.name}
                         width="200px"
                         height="200px"
                         src="/self.jpg"
@@ -21,21 +21,21 @@ const About = ({ bio }) => {
                         About Me
                     </h1>
                     <div data-cy="about-intro" className='mb-6'>
-                        <Markdown className='prose text-xl text-justify'>{bio.intro}</Markdown>
+                        <Markdown className='prose text-xl text-justify'>{about.introduction}</Markdown>
                     </div>
 
                     <h1 data-cy="about-contact-label" className="transition duration-700 mb-8 hover:text-blue-600 text-3xl font-semibold">
                         Contact
                     </h1>
                     <div data-cy="about-contact" className='mb-6'>
-                        <Markdown className='prose text-sm'>{bio.contactInfo}</Markdown>
+                        <Markdown className='prose text-sm'>{about.contactInfo}</Markdown>
                     </div>
 
                     <h1 data-cy="about-education-label" className="transition duration-700 mb-8 hover:text-blue-600 text-3xl font-semibold">
                         Education
                     </h1>
                     <div data-cy="about-education" className='mb-6'>
-                        <Markdown className='prose text-sm'>{bio.education}</Markdown>
+                        <Markdown className='prose text-sm'>{about.education}</Markdown>
                     </div>
                 </div>
             </div>
