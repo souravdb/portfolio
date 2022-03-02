@@ -17,7 +17,7 @@ const About = ({ bio }) => {
                 </div>
 
                 <div className="px-4 lg:px-0">
-                    <h1 data-cy="about-name" className="transition duration-700 text-center mb-8 text-blue-900 text-3xl font-semibold">
+                    <h1 data-cy="about-me-label" className="transition duration-700 text-center mb-8 text-blue-900 text-3xl font-semibold">
                         About Me
                     </h1>
                     <div data-cy="about-intro" className='mb-6'>
