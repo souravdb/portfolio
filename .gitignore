@@ -8,6 +8,8 @@
 # testing
 /cypress
 /mochawesome-report
+/test-results/assets
+/test-results/*.json
 /coverage
 /.nyc_output
 cypress.json
