@@ -6,6 +6,8 @@
 		"start": "next start",
 		"export": "next export",
 		"lint": "next lint",
+		"cypress:open": "cypress open",
+		"cypress:run": "cypress run --browser chrome",
 		"test": "cypress run --reporter mochawesome"
 	},
 	"dependencies": {
